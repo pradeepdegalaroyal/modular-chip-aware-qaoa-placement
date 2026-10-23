@@ -1,0 +1,13 @@
+[project]
+name = "modqaoa"
+version = "0.1.0"
+description = "Chip-aware placement for QAOA on coupler-connected modular quantum devices"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "pandas", "matplotlib", "networkx"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
