@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Chip-aware placement for QAOA on modular quantum devices (simulation study)"
+authors:
+  - family-names: Degala
+    given-names: Chenchupradeep
+version: 0.1.0
+date-released: 2026-10-23
+license: MIT
+repository-code: "https://github.com/pradeepdegalaroyal/modular-chip-aware-qaoa-placement"
