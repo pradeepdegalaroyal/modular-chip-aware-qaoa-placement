@@ -1,10 +1,20 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "Chip-aware placement for QAOA on modular quantum devices (simulation study)"
+type: software
 authors:
-  - family-names: Degala
-    given-names: Chenchupradeep
-version: 0.1.0
-date-released: 2026-10-23
+  - family-names: "Chenchupradeep"
+    given-names: "Degala"
+    affiliation: "SRM University AP"
+version: "0.1.0"
+date-released: "2026-10-23"
 license: MIT
 repository-code: "https://github.com/pradeepdegalaroyal/modular-chip-aware-qaoa-placement"
+abstract: "On modular quantum processors, chip-to-chip coupler gates are much noisier than intra-chip gates, and QAOA's cost layer puts one two-qubit gate on every graph edge, so the vertex-to-chip assignment decides how many noisy gates the circuit contains. This simulation study (n = 8-12 qubits, two chips, Pauli-trajectory noise) measures how much MaxCut approximation ratio (AR) a chip-aware placement (Kernighan-Lin bisection) recovers compared with a chip-oblivious random placement. At a 20x coupler/intra-chip error ratio it gains 0.04-0.06 AR on average for both community-structured and 3-regular graphs, and it gains exactly nothing when the ratio is 1."
+keywords:
+  - QAOA
+  - modular quantum processors
+  - qubit placement
+  - Kernighan-Lin
+  - noise simulation
+  - MaxCut

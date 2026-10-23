@@ -1,4 +1,4 @@
-# modular-chip-aware-qaoa-placement
+# Chip-aware placement for QAOA on modular quantum devices (simulation study)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
@@ -105,7 +105,18 @@ results/  figures/      raw.csv, summary.csv, gains.csv, meta.json; PNGs
 ```
 
 ## Citation
-See `CITATION.cff`. Degala Chenchupradeep (2026), *Chip-aware placement for QAOA on modular quantum devices*.
+If you use this code, please cite it. GitHub's "Cite this repository" button reads [CITATION.cff](CITATION.cff).
+
+```bibtex
+@software{chenchupradeep2026chipaware,
+  author  = {Chenchupradeep, Degala},
+  title   = {Chip-aware placement for QAOA on modular quantum devices (simulation study)},
+  year    = {2026},
+  version = {0.1.0},
+  url     = {https://github.com/pradeepdegalaroyal/modular-chip-aware-qaoa-placement},
+  license = {MIT}
+}
+```
 
 ## License
-MIT.
+Released under the MIT licence; see [LICENSE](LICENSE). Copyright (c) 2026 Degala Chenchupradeep.
