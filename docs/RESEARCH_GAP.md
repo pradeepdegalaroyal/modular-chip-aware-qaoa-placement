@@ -7,7 +7,7 @@ doi:10.1103/RevModPhys.95.045005) review error mitigation and stress that mitiga
 circuit noise, so reducing the number of *bad* gates is preferable to mitigating them afterwards. Wang et al.
 (2027, doi:10.15302/frontphys.2027.023301) call for a systematic reassessment of variational algorithms as
 architectures move toward early fault tolerance, and Wołk et al. (2027, doi:10.1016/j.ins.2026.124187) work on
-QAOA design for constrained problems. What the compilation work does not quantify is how much *application-level*
+Quantum Approximate Optimization Algorithm (QAOA) design for constrained problems. What the compilation work does not quantify is how much *application-level*
 QAOA quality a chip-aware placement recovers, and how that depends on the coupler/intra-chip error ratio and on
 the problem structure.
 
@@ -19,7 +19,7 @@ ratio lost to coupler noise, relative to the chip-oblivious placement that a mon
 **Hypothesis (falsifiable).** At p_inter/p_intra = 20 (p_intra = 0.005), Kernighan-Lin bisection raises the noisy
 MaxCut approximation ratio (AR) of p=2 QAOA over random balanced placement by at least 0.02 (paired, mean over
 graphs), for n = 8-12 qubits on two chips; at p_inter/p_intra = 1 the gain is exactly zero (control). Success
-metric: paired AR gain, mean ± std over 4 graphs per family and size. Also reported: gap between KL and the exact
+metric: paired AR gain, mean ± std over 4 graphs per family and size. Also reported: gap between Kernighan-Lin (KL) and the exact
 minimum bisection.
 
 **Scale.** Everything is statevector / Pauli-trajectory simulation with n <= 12 qubits on two chips of n/2

@@ -1,4 +1,4 @@
-# Chip-aware placement for QAOA on modular quantum devices (simulation study)
+# Chip-aware placement for Quantum Approximate Optimization Algorithm (QAOA) on modular quantum devices (simulation study)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
@@ -17,21 +17,27 @@ fidelity asymmetry (Du et al., 2027, doi:10.1016/j.future.2026.108830). Error mi
 undo noise (Cai et al., 2023, doi:10.1103/RevModPhys.95.045005), and variational algorithms need reassessment as
 hardware evolves (Wang et al., 2027, doi:10.15302/frontphys.2027.023301). The open question addressed here is
 the *application-level* benefit for QAOA of a cheap chip-aware placement, as a function of the error ratio and graph
-structure. Hypothesis, stated in advance (`docs/RESEARCH_GAP.md`): at ratio 20, KL raises AR by at least 0.02 over random
+structure. Hypothesis, stated in advance (`docs/RESEARCH_GAP.md`): at ratio 20, Kernighan-Lin (KL) raises AR by at least 0.02 over random
 placement, and by exactly 0 at ratio 1.
 
 ## Method
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'background': '#ffffff', 'noteBkgColor': '#ffffff', 'noteTextColor': '#000000', 'actorBkg': '#ffffff', 'actorBorder': '#000000', 'actorTextColor': '#000000', 'signalColor': '#000000', 'signalTextColor': '#000000', 'labelBoxBkgColor': '#ffffff', 'labelTextColor': '#000000', 'clusterBkg': '#ffffff', 'clusterBorder': '#000000'}}}%%
 flowchart LR
-  G[MaxCut graph] --> A[Noiseless p=2 angle optimisation]
+  G["MaxCut graph"] --> A["Noiseless p=2 angle optimisation"]
   G --> P{Placement}
-  P -->|random| S
-  P -->|Kernighan-Lin| S
-  P -->|exact min-bisection| S
-  A --> S[Pauli-trajectory QAOA, p_inter = r * p_intra]
-  S --> M[Approximation ratio vs exact MaxCut]
+  P --> EL1["random"]
+  EL1 --> S
+  P --> EL2["Kernighan-Lin"]
+  EL2 --> S
+  P --> EL3["exact min-bisection"]
+  EL3 --> S
+  A --> S["Pauli-trajectory QAOA, p_inter = r * p_intra"]
+  S --> M["Approximation ratio vs exact MaxCut"]
+  classDef lbl fill:#ffffff,stroke:#ffffff,color:#000000,font-style:italic;
+  class EL1,EL2,EL3 lbl;
 ```
-Two chips of n/2 qubits; every cost-layer ZZ gate is followed by two-qubit depolarising noise, p_intra = 0.005 within a chip
+Two chips of n/2 qubits; every cost-layer ZZ (two-qubit Pauli-Z product) gate is followed by two-qubit depolarising noise, p_intra = 0.005 within a chip
 and r x p_intra across a coupler (r = 1, 5, 20); 200 trajectories; mixers noiseless; coupler routing not modelled.
 Angles are optimised noiselessly and shared by all placements, so differences come only from noise.
 Baselines: random (chip-oblivious) placement with standard QAOA, the r = 1 uniform-noise case, and exact MaxCut as the
@@ -93,7 +99,7 @@ python -m pytest -q tests
 python experiments/run_all.py --quick   # smoke run (writes results_quick/, figures_quick/)
 python experiments/run_all.py           # full run: 430 s (results/meta.json)
 ```
-Run on Windows 11, Python 3.11.9, CPU only, with the versions pinned in `requirements.txt`.
+Run on Windows 11, Python 3.11.9, central processing unit (CPU) only, with the versions pinned in `requirements.txt`.
 
 ## Project structure
 ```
@@ -119,4 +125,4 @@ If you use this code, please cite it. GitHub's "Cite this repository" button rea
 ```
 
 ## License
-Released under the MIT licence; see [LICENSE](LICENSE). Copyright (c) 2026 Degala Chenchupradeep.
+Released under the Massachusetts Institute of Technology (MIT) licence; see [LICENSE](LICENSE). Copyright (c) 2026 Degala Chenchupradeep.
